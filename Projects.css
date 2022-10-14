@@ -1,0 +1,112 @@
+#defaultbackground {
+  background-color: rgb(39, 39, 39) !important; 
+}
+
+.image-grid {
+  --gap: 16px;
+  --num-cols: 4;
+  --row-height: 35vh;
+  box-sizing: border-box;
+  padding: var(--gap);
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  grid-auto-rows: var(--row-height);
+  gap: var(--gap);
+}
+.image-grid .proj {
+  border-radius: 20px;
+  transition: 0.15s;
+}
+.image-grid .proj img {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+.image-grid .proj:hover img:hover{
+  opacity: 0.4;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.image-grid .proj .overlay {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transition: 0.15s;
+}
+.image-grid .proj .text {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4em;
+  position: absolute;
+  margin-top: -100px;
+  padding: 20px;
+  opacity: 0;
+  transition: 0.15s;
+}
+.image-grid .proj:hover .text {
+  cursor: default;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: 0.15s;
+  opacity: 1;
+}
+.image-grid .proj:hover .overlay {
+  transform: translateY(-10px);
+  transition: 0.15s;
+}
+.image-grid-col-2 {
+  grid-column: span 2;
+}
+.image-grid-col-3 {
+  grid-column: span 3;
+}
+.image-grid-col-4 {
+  grid-column: span 4;
+}
+.image-grid-row-2 {
+  grid-row: span 2;
+}
+.image-grid-row-3 {
+  grid-row: span 3;
+} 
+.image-grid-row-4 {
+  grid-row: span 4;
+}
+.heading {
+  font-family: Verdana;
+  font-size: 4em;
+  color:white;
+  font-weight: bold;
+  float: left;
+  margin: 0% 1%;
+  position: relative;
+  top: 0.1em;  
+}
+.heading a{
+  color: white;
+  text-decoration: none;
+  background-image: none, 
+  linear-gradient(#ffffff, #ffffff);
+  background-size: 100% 10px, 0 10px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.15s linear;
+}
+.heading a:hover {
+  background-size: 0 3px, 100% 3px;
+}
+
+@media screen and (max-width: 1024px) {
+  .image-grid {
+    --num-cols: 2;
+    --row-height: 200px;
+  }
+    .heading a:hover {
+      background-size: 0 2px, 100% 2px;
+    }
+}
+
